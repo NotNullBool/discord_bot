@@ -6,13 +6,13 @@ intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
-@tree.command(name="ping", description="ping the bot!", guild=discord.Object(id=1004855799044120699))
+@tree.command(name="ping", description="ping the bot!")
 async def ping(interaction: discord.Interaction):
     await interaction.response.send_message("pong")
 
 @client.event
 async def on_ready():
-    await tree.sync(guild=discord.Object(id=1004855799044120699))
+    await tree.sync()
     print(f"Logged in as {client.user}")
 
 #load token from json
